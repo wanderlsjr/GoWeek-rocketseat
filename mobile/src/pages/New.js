@@ -12,8 +12,6 @@ import {
   TextInput,
   AsyncStorage
 } from "react-native";
-import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from "constants";
-import api from "../services/api";
 
 export default class New extends Component {
   static navigationOption = {
@@ -28,7 +26,7 @@ export default class New extends Component {
     this.props.navigation.pop();
   };
 
-  handleNewTweet = () => {
+  handleNewTweet = async () => {
     const content = this.state.newTweet;
     const author = await AsyncStorage.getItem("@GoTwitter:username");
 
@@ -48,6 +46,7 @@ export default class New extends Component {
           <TouchableOpacity onPress={this.goBack}>
             <Icon name="close" size={24} color="#4BB0EE" />
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={this.handleNewTweet}>
             <Text style={styles.buttonText}>Tweetar</Text>
           </TouchableOpacity>

@@ -10,9 +10,9 @@ import {
   AsyncStorage
 } from "react-native";
 
-import Icon from "react-native-vector-icons/FontAwesome";
-
 import { StackActions, NavigationActions } from "react-navigation";
+
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class Login extends Component {
   static navigationOptions = {
@@ -31,7 +31,7 @@ export default class Login extends Component {
     }
   }
 
-  hanldeLogin = async () => {
+  handleLogin = async () => {
     const { username } = this.state;
 
     if (!username.length) return;
@@ -56,21 +56,20 @@ export default class Login extends Component {
 
   render() {
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
-        <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
+        <View style={styles.content}>
           <View>
             <Icon name="twitter" size={64} color="#4BB0EE" />
           </View>
-
           <TextInput
             style={styles.input}
             placeholder="Nome de usuário"
             value={this.state.username}
             onChangeText={this.handleInputChange}
             returnKeyType="send"
-            onSubmitEditing={this.hanldeLogin}
+            onSubmitEditing={this.handleLogin}
           />
-          <TouchableOpacity style={styles.button} onPress={this.hanldeLogin}>
+          <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
         </View>

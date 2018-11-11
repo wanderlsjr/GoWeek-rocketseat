@@ -1,10 +1,10 @@
-import { createStackNavigation } from "react-navigation";
+import { createStackNavigator } from "react-navigation";
 
 import Login from "./pages/Login";
 import Timeline from "./pages/Timeline";
 import New from "./pages/New";
 
-const Routes = createStackNavigation({
+const Routes = createStackNavigator({
   Login,
   Timeline,
   New

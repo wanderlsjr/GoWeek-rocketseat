@@ -18,11 +18,7 @@ export default class Timeline extends Component {
   static navigationOption = ({ navigation }) => ({
     title: "Início",
     headerRight: (
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("New");
-        }}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate("New")}>
         <Icon
           style={{ marginRight: 20 }}
           name="add-circle-outline"
@@ -41,11 +37,12 @@ export default class Timeline extends Component {
     this.subscribeToEvents();
 
     const response = await api.get("tweets");
+
     this.setState({ tweets: response.data });
   }
 
   subscribeToEvents = () => {
-    const io = socket("http://localhost:3000");
+    const io = socket("http://192.168.1.10:3000");
 
     io.on("tweet", data => {
       this.setState({ tweets: [data, ...this.state.tweets] });
