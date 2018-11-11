@@ -14,7 +14,7 @@ import {
 } from "react-native";
 
 export default class New extends Component {
-  static navigationOption = {
+  static navigationOptions = {
     header: null
   };
 
