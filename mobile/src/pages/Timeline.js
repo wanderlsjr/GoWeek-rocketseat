@@ -15,7 +15,7 @@ import Tweet from "../components/Tweet";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 export default class Timeline extends Component {
-  static navigationOption = ({ navigation }) => ({
+  static navigationOptions = ({ navigation }) => ({
     title: "Início",
     headerRight: (
       <TouchableOpacity onPress={() => navigation.navigate("New")}>
